@@ -248,7 +248,19 @@ def generate_response(query: str, context: str, llm_model: str, temperature: flo
 def render_sidebar():
     """Render the sidebar with controls and settings"""
     with st.sidebar:
-        st.image("https://via.placeholder.com/300x100/1f77b4/ffffff?text=DocQnA", use_container_width=True)
+        # Use a working image service
+        # st.image("https://dummyimage.com/300x100/1f77b4/ffffff&text=DocQnA", use_container_width=True)
+        st.markdown("""
+        <div style="background: #1f77b4; 
+                    padding: 20px; 
+                    border-radius: 10px; 
+                    text-align: center;
+                    font-family: Arial, sans-serif;">
+            <span style="font-size: 40px;">📚</span>
+            <h2 style="color: white; margin: 0;">AI Knowledge Assistant</h2>
+            <p style="color: #e0e0e0; font-size: 14px; margin: 0;">v2.0</p>
+        </div>
+""", unsafe_allow_html=True)
         st.markdown("## 📊 Dashboard")
         
         # Statistics
@@ -407,7 +419,7 @@ def main():
     # Main content
     col1, col2, col3 = st.columns([1, 4, 1])
     with col2:
-        st.markdown('<p class="main-header">📚 Document Q&A Assistant</p>', unsafe_allow_html=True)
+        st.markdown('<p class="main-header">📚 AI Knowledge Assistant</p>', unsafe_allow_html=True)
         st.markdown('<p class="sub-header">Ask questions about your documents with advanced RAG capabilities</p>', unsafe_allow_html=True)
         
         # Chat interface
